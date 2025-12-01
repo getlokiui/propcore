@@ -1,0 +1,16 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "resizable",
+  "type": "registry:ui",
+  "title": "Resizable",
+  "dependencies": [
+    "react-resizable-panels"
+  ],
+  "files": [
+    {
+      "path": "src/components/ui/resizable.tsx",
+      "content": "\"use client\"\n\nimport { GripVertical } from \"lucide-react\"\nimport * as ResizablePrimitive from \"react-resizable-panels\"\n\nimport * as React from \"react\"\n\nimport { cn } from \"@/lib/utils\"\n\nfunction ResizablePanelGroup({\n  className,\n  ...props\n}: React.ComponentProps<typeof ResizablePrimitive.PanelGroup>) {\n  return (\n    <ResizablePrimitive.PanelGroup\n      data-slot=\"resizable-panel-group\"\n      className={cn(\n        \"flex h-full w-full font-base data-[panel-group-direction=vertical]:flex-col\",\n        className,\n      )}\n      {...props}\n    />\n  )\n}\n\nfunction ResizablePanel({\n  className,\n  ...props\n}: React.ComponentProps<typeof ResizablePrimitive.Panel>) {\n  return (\n    <ResizablePrimitive.Panel\n      data-slot=\"resizable-panel\"\n      className={cn(className)}\n      {...props}\n    />\n  )\n}\n\nfunction ResizableHandle({\n  withHandle,\n  className,\n  ...props\n}: React.ComponentProps<typeof ResizablePrimitive.PanelResizeHandle> & {\n  withHandle?: boolean\n}) {\n  return (\n    <ResizablePrimitive.PanelResizeHandle\n      data-slot=\"resizable-handle\"\n      className={cn(\n        \"relative flex w-[3px] items-center justify-center\",\n        \"bg-border\",\n        \"after:absolute after:inset-y-0 after:left-1/2 after:w-2 after:-translate-x-1/2\",\n        \"transition-colors hover:bg-main\",\n        \"focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-main focus-visible:ring-offset-1\",\n        \"data-[panel-group-direction=vertical]:h-[3px] data-[panel-group-direction=vertical]:w-full\",\n        \"data-[panel-group-direction=vertical]:after:left-0 data-[panel-group-direction=vertical]:after:h-2\",\n        \"data-[panel-group-direction=vertical]:after:w-full data-[panel-group-direction=vertical]:after:-translate-y-1/2\",\n        \"data-[panel-group-direction=vertical]:after:translate-x-0\",\n        \"[&[data-panel-group-direction=vertical]>div]:rotate-90\",\n        className,\n      )}\n      {...props}\n    >\n      {withHandle && (\n        <div className={cn(\n          \"z-10 flex h-6 w-4 items-center justify-center\",\n          \"rounded-base border-2 border-border\",\n          \"bg-background\",\n          \"shadow-[1px_1px_0_var(--border)]\",\n          \"hover:bg-accent\",\n        )}>\n          <GripVertical className=\"size-3 text-foreground\" />\n        </div>\n      )}\n    </ResizablePrimitive.PanelResizeHandle>\n  )\n}\n\nexport { ResizablePanelGroup, ResizablePanel, ResizableHandle }\n",
+      "type": "registry:ui"
+    }
+  ]
+}

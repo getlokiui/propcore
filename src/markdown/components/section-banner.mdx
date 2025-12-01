@@ -1,0 +1,56 @@
+---
+title: Section Banner
+description: Propaganda-style skewed section headers with star icons.
+---
+
+<ComponentPreview component="section-banner">
+  ```tsx file=<rootDir>/src/examples/ui/section-banner.tsx
+  ```
+</ComponentPreview>
+
+## Installation
+
+<Installation component="section-banner">
+  ```tsx file=<rootDir>/src/components/ui/section-banner.tsx
+  ```
+</Installation>
+
+## Usage
+
+```ts
+import { SectionBanner, SectionHeader } from "@/components/ui/section-banner"
+```
+
+```tsx
+<SectionBanner>Important Directive</SectionBanner>
+<SectionBanner variant="black">Operations Status</SectionBanner>
+<SectionHeader>Simple Section Header</SectionHeader>
+```
+
+## Components
+
+### SectionBanner
+
+Full propaganda-style banner with skew effect and extending line.
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `variant` | `"red" \| "black" \| "gold"` | `"red"` | Color variant |
+| `breakOut` | `boolean` | `false` | Extend beyond container bounds |
+| `className` | `string` | - | Additional CSS classes |
+
+### SectionHeader
+
+Simpler alternative without the skew - just star decoration and lines.
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `className` | `string` | - | Additional CSS classes |
+
+## Features
+
+- **Skewed container** with counter-skewed text for visual tension
+- **Star icons** for propaganda flair
+- **Extending line** that fills remaining space
+- **Three variants**: Red (default), black (industrial), gold (achievement)
+- **breakOut option** to extend beyond container

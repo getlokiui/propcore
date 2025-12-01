@@ -1,0 +1,16 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "radio-group",
+  "type": "registry:ui",
+  "title": "Radio group",
+  "dependencies": [
+    "@radix-ui/react-radio-group"
+  ],
+  "files": [
+    {
+      "path": "src/components/ui/radio-group.tsx",
+      "content": "\"use client\"\n\nimport * as RadioGroupPrimitive from \"@radix-ui/react-radio-group\"\n\nimport * as React from \"react\"\n\nimport { cn } from \"@/lib/utils\"\n\n// Star icon for radio indicator\nfunction RadioStar({ className }: { className?: string }) {\n  return (\n    <svg viewBox=\"0 0 24 24\" fill=\"currentColor\" className={className}>\n      <path d=\"M12 2l2.4 7.4h7.6l-6 4.6 2.3 7-6.3-4.6-6.3 4.6 2.3-7-6-4.6h7.6z\" />\n    </svg>\n  )\n}\n\nfunction RadioGroup({\n  className,\n  ...props\n}: React.ComponentProps<typeof RadioGroupPrimitive.Root>) {\n  return (\n    <RadioGroupPrimitive.Root\n      data-slot=\"radio-group\"\n      className={cn(\"grid gap-3\", className)}\n      {...props}\n    />\n  )\n}\n\nfunction RadioGroupItem({\n  className,\n  ...props\n}: React.ComponentProps<typeof RadioGroupPrimitive.Item>) {\n  return (\n    <RadioGroupPrimitive.Item\n      data-slot=\"radio-group-item\"\n      className={cn(\n        \"peer relative size-6 shrink-0\",\n        \"bg-secondary-background\",\n        \"border-3 border-border\",\n        \"rounded-full\",\n        \"shadow-shadow-sm\",\n        \"transition-all duration-150\",\n        \"hover:shadow-shadow\",\n        \"focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-main focus-visible:ring-offset-2 focus-visible:ring-offset-background\",\n        \"disabled:cursor-not-allowed disabled:opacity-50\",\n        \"data-[state=checked]:bg-secondary-background\",\n        className,\n      )}\n      {...props}\n    >\n      <RadioGroupPrimitive.Indicator\n        data-slot=\"radio-group-indicator\"\n        className=\"flex items-center justify-center w-full h-full\"\n      >\n        <RadioStar className=\"size-4 text-main animate-in zoom-in-50 duration-150\" />\n      </RadioGroupPrimitive.Indicator>\n    </RadioGroupPrimitive.Item>\n  )\n}\n\nexport { RadioGroup, RadioGroupItem, RadioStar }\n",
+      "type": "registry:ui"
+    }
+  ]
+}

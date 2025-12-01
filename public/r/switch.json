@@ -1,0 +1,16 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "switch",
+  "type": "registry:ui",
+  "title": "Switch",
+  "dependencies": [
+    "@radix-ui/react-switch"
+  ],
+  "files": [
+    {
+      "path": "src/components/ui/switch.tsx",
+      "content": "\"use client\"\n\nimport * as SwitchPrimitive from \"@radix-ui/react-switch\"\n\nimport * as React from \"react\"\n\nimport { cn } from \"@/lib/utils\"\n\n// Star icon for switch thumb\nfunction SwitchStar({ className }: { className?: string }) {\n  return (\n    <svg viewBox=\"0 0 24 24\" fill=\"currentColor\" className={className}>\n      <path d=\"M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z\" />\n    </svg>\n  )\n}\n\nfunction Switch({\n  className,\n  ...props\n}: React.ComponentProps<typeof SwitchPrimitive.Root>) {\n  return (\n    <SwitchPrimitive.Root\n      data-slot=\"switch\"\n      className={cn(\n        \"peer relative inline-flex h-9 w-[68px] shrink-0 cursor-pointer items-center\",\n        \"border-3 border-border\",\n        \"rounded-base\",\n        \"shadow-shadow-sm\",\n        \"transition-colors duration-200\",\n        \"focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-main focus-visible:ring-offset-2 focus-visible:ring-offset-background\",\n        \"disabled:cursor-not-allowed disabled:opacity-50 disabled:shadow-none\",\n        \"data-[state=unchecked]:bg-secondary-background\",\n        \"data-[state=checked]:bg-main\",\n        className,\n      )}\n      {...props}\n    >\n      <SwitchPrimitive.Thumb\n        data-slot=\"switch-thumb\"\n        className={cn(\n          \"pointer-events-none relative flex items-center justify-center\",\n          \"h-7 w-7 rounded-base\",\n          \"border-3 border-border\",\n          \"bg-secondary-background\",\n          \"shadow-[2px_2px_0_var(--border)]\",\n          \"transition-all duration-200 ease-in-out\",\n          \"data-[state=unchecked]:translate-x-[2px]\",\n          \"data-[state=checked]:translate-x-[31px]\",\n          // Show star when checked\n          \"[&>svg]:data-[state=unchecked]:opacity-0 [&>svg]:data-[state=unchecked]:scale-0\",\n          \"[&>svg]:data-[state=checked]:opacity-100 [&>svg]:data-[state=checked]:scale-100\",\n        )}\n      >\n        <SwitchStar\n          className={cn(\n            \"size-4 transition-all duration-200\",\n            \"text-main\",\n          )}\n        />\n      </SwitchPrimitive.Thumb>\n    </SwitchPrimitive.Root>\n  )\n}\n\nexport { Switch, SwitchStar }\n",
+      "type": "registry:ui"
+    }
+  ]
+}

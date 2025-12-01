@@ -1,0 +1,70 @@
+---
+title: Sidebar
+description: A composable, themeable and customizable sidebar component.
+shadcnDocsLink: https://ui.shadcn.com/docs/components/sidebar
+---
+
+<ComponentPreview wrapperClassName="relative !p-0" component="sidebar">
+  ```tsx file=<rootDir>/src/examples/ui/sidebar/page.tsx
+  ```
+</ComponentPreview>
+
+## Installation
+
+<Installation component="sidebar">
+  ```tsx file=<rootDir>/src/components/ui/sidebar.tsx
+  ```
+</Installation>
+
+## Aggressive Variant
+
+The sidebar menu buttons support a propaganda-style `aggressive` variant for active states:
+
+```tsx
+<SidebarMenuButton variant="aggressive" isActive>
+  Dashboard
+</SidebarMenuButton>
+```
+
+When active, the aggressive variant adds:
+- Black background with cream text
+- `translate-x-2 -rotate-1` transform (shifts right + tilts)
+- Red offset shadow
+- Red left border accent
+- Uppercase heading font
+
+## Usage
+
+First wrap the `SidebarProvider` and `SidebarInset` components around your app.
+
+### page.tsx
+
+```tsx file=<rootDir>/src/examples/ui/sidebar/page.tsx
+```
+
+and then add the sidebar component.
+
+### sidebar.tsx
+
+```tsx file=<rootDir>/src/examples/ui/sidebar/sidebar.tsx
+```
+
+## Icons
+
+Propcore avoids modern line icons in favor of bold, simple shapes:
+- ★ Star icons for navigation items
+- ▶ Arrow/chevron for sub-items
+- Solid geometric shapes
+
+### Custom Star Icon
+
+```tsx
+function StarIcon({ className }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 24 24" fill="currentColor" className={className}>
+      <polygon points="12,2 15,9 22,9 17,14 19,22 12,17 5,22 7,14 2,9 9,9" />
+    </svg>
+  )
+}
+```
+

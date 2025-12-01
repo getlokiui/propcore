@@ -1,0 +1,17 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "sonner",
+  "type": "registry:ui",
+  "title": "Sonner",
+  "dependencies": [
+    "sonner",
+    "next-themes"
+  ],
+  "files": [
+    {
+      "path": "src/components/ui/sonner.tsx",
+      "content": "\"use client\"\n\nimport { useTheme } from \"next-themes\"\nimport { Toaster as Sonner, ToasterProps } from \"sonner\"\n\nconst Toaster = ({ ...props }: ToasterProps) => {\n  const { theme = \"system\" } = useTheme()\n\n  return (\n    <Sonner\n      theme={theme as ToasterProps[\"theme\"]}\n      style={{ fontFamily: \"inherit\", overflowWrap: \"anywhere\" }}\n      toastOptions={{\n        unstyled: true,\n        classNames: {\n          toast:\n            \"group relative bg-background text-foreground border-border border-3 font-heading shadow-shadow rounded-base text-[13px] flex items-center gap-3 p-4 w-[356px] [&:has(button)]:justify-between overflow-hidden\",\n          title: \"font-heading uppercase tracking-wider text-sm\",\n          description: \"font-base text-foreground/80\",\n          actionButton:\n            \"font-heading uppercase tracking-wider border-3 text-[11px] h-7 px-3 bg-main text-main-foreground border-border rounded-base shrink-0 hover:translate-x-[1px] hover:translate-y-[1px] hover:shadow-none transition-all\",\n          cancelButton:\n            \"font-heading uppercase tracking-wider border-3 text-[11px] h-7 px-3 bg-secondary-background text-foreground border-border rounded-base shrink-0 hover:bg-accent transition-colors\",\n          error: \"bg-main text-main-foreground border-border\",\n          success: \"bg-border text-background border-border\",\n          warning: \"bg-accent text-foreground border-border\",\n          info: \"bg-background text-foreground border-border\",\n          loading:\n            \"[&[data-sonner-toast]_[data-icon]]:flex [&[data-sonner-toast]_[data-icon]]:size-5 [&[data-sonner-toast]_[data-icon]]:relative [&[data-sonner-toast]_[data-icon]]:justify-start [&[data-sonner-toast]_[data-icon]]:items-center [&[data-sonner-toast]_[data-icon]]:flex-shrink-0\",\n          icon: \"size-5\",\n        },\n      }}\n      icons={{\n        success: (\n          <svg viewBox=\"0 0 24 24\" fill=\"currentColor\" className=\"size-5\">\n            <path d=\"M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z\" />\n          </svg>\n        ),\n        error: (\n          <svg viewBox=\"0 0 24 24\" fill=\"currentColor\" className=\"size-5\">\n            <path d=\"M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z\" />\n          </svg>\n        ),\n        warning: (\n          <svg viewBox=\"0 0 24 24\" fill=\"currentColor\" className=\"size-5\">\n            <path d=\"M1 21h22L12 2 1 21zm12-3h-2v-2h2v2zm0-4h-2v-4h2v4z\" />\n          </svg>\n        ),\n        info: (\n          <svg viewBox=\"0 0 24 24\" fill=\"currentColor\" className=\"size-5\">\n            <path d=\"M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z\" />\n          </svg>\n        ),\n      }}\n      {...props}\n    />\n  )\n}\n\nexport { Toaster }\n",
+      "type": "registry:ui"
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "checkbox",
+  "type": "registry:ui",
+  "title": "Checkbox",
+  "dependencies": [
+    "@radix-ui/react-checkbox"
+  ],
+  "files": [
+    {
+      "path": "src/components/ui/checkbox.tsx",
+      "content": "\"use client\"\n\nimport * as CheckboxPrimitive from \"@radix-ui/react-checkbox\"\n\nimport * as React from \"react\"\n\nimport { cn } from \"@/lib/utils\"\n\n// Star icon for propcore checkmark\nfunction StarCheckmark({ className }: { className?: string }) {\n  return (\n    <svg viewBox=\"0 0 24 24\" fill=\"currentColor\" className={className}>\n      <path d=\"M12 2l2.4 7.4h7.6l-6 4.6 2.3 7-6.3-4.6-6.3 4.6 2.3-7-6-4.6h7.6z\" />\n    </svg>\n  )\n}\n\nfunction Checkbox({\n  className,\n  ...props\n}: React.ComponentProps<typeof CheckboxPrimitive.Root>) {\n  return (\n    <CheckboxPrimitive.Root\n      data-slot=\"checkbox\"\n      className={cn(\n        \"peer relative size-6 shrink-0\",\n        \"bg-secondary-background\",\n        \"border-3 border-border\",\n        \"rounded-base\",\n        \"shadow-shadow-sm\",\n        \"transition-all duration-150\",\n        \"hover:shadow-shadow\",\n        \"focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-main focus-visible:ring-offset-2 focus-visible:ring-offset-background\",\n        \"disabled:cursor-not-allowed disabled:opacity-50\",\n        \"data-[state=checked]:bg-secondary-background\",\n        className,\n      )}\n      {...props}\n    >\n      <CheckboxPrimitive.Indicator\n        data-slot=\"checkbox-indicator\"\n        className={cn(\"flex items-center justify-center w-full h-full\")}\n      >\n        <StarCheckmark className=\"size-5 text-main animate-in zoom-in-50 duration-150\" />\n      </CheckboxPrimitive.Indicator>\n    </CheckboxPrimitive.Root>\n  )\n}\n\nexport { Checkbox, StarCheckmark }\n",
+      "type": "registry:ui"
+    }
+  ]
+}

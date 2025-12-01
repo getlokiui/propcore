@@ -1,0 +1,43 @@
+---
+title: Stepper
+description: A multi-step progress indicator with striped fill bar and star icons.
+---
+
+<ComponentPreview component="stepper">
+  ```tsx file=<rootDir>/src/examples/ui/stepper.tsx
+  ```
+</ComponentPreview>
+
+## Installation
+
+<Installation component="stepper">
+  ```tsx file=<rootDir>/src/components/ui/stepper.tsx
+  ```
+</Installation>
+
+## Usage
+
+```ts
+import { Stepper } from "@/components/ui/stepper"
+```
+
+```tsx
+const steps = ["ENLIST", "TRAIN", "DEPLOY", "LIBERATE"]
+
+<Stepper steps={steps} currentStep={1} />
+```
+
+## Props
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `steps` | `string[]` | required | Array of step labels |
+| `currentStep` | `number` | required | Zero-indexed current step |
+| `className` | `string` | - | Additional CSS classes |
+
+## Features
+
+- **Progress bar** with striped fill animation
+- **Step markers** showing numbers or stars for completed steps
+- **Color coding**: Red for current, gold for completed, muted for pending
+- **Mission status header** with star icon

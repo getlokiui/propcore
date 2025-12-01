@@ -1,0 +1,13 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "skeleton",
+  "type": "registry:ui",
+  "title": "Skeleton",
+  "files": [
+    {
+      "path": "src/components/ui/skeleton.tsx",
+      "content": "import { cva, type VariantProps } from \"class-variance-authority\"\n\nimport { cn } from \"@/lib/utils\"\n\nconst skeletonVariants = cva(\n  [\n    \"animate-pulse rounded-base\",\n    \"border-3 border-border\",\n  ],\n  {\n    variants: {\n      variant: {\n        default: \"bg-secondary-background\",\n        striped: [\n          \"bg-secondary-background\",\n          \"relative overflow-hidden\",\n        ],\n        halftone: [\n          \"bg-secondary-background\",\n          \"relative overflow-hidden\",\n        ],\n      },\n    },\n    defaultVariants: {\n      variant: \"default\",\n    },\n  }\n)\n\nfunction Skeleton({\n  className,\n  variant,\n  ...props\n}: React.ComponentProps<\"div\"> & VariantProps<typeof skeletonVariants>) {\n  return (\n    <div\n      data-slot=\"skeleton\"\n      className={cn(skeletonVariants({ variant }), className)}\n      {...props}\n    >\n      {/* Striped overlay */}\n      {variant === \"striped\" && (\n        <div\n          className=\"absolute inset-0 opacity-10\"\n          style={{\n            backgroundImage: `repeating-linear-gradient(\n              45deg,\n              transparent,\n              transparent 4px,\n              currentColor 4px,\n              currentColor 8px\n            )`,\n          }}\n        />\n      )}\n      {/* Halftone overlay */}\n      {variant === \"halftone\" && (\n        <div\n          className=\"absolute inset-0 opacity-[0.08] mix-blend-multiply\"\n          style={{\n            backgroundImage: `radial-gradient(circle, currentColor 1px, transparent 1px)`,\n            backgroundSize: \"4px 4px\",\n          }}\n        />\n      )}\n    </div>\n  )\n}\n\nexport { Skeleton, skeletonVariants }\n",
+      "type": "registry:ui"
+    }
+  ]
+}

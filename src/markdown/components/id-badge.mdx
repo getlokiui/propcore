@@ -1,0 +1,81 @@
+---
+title: ID Badge
+description: A propaganda-style identity badge with avatar, name, role, and active star indicator.
+---
+
+<ComponentPreview component="id-badge">
+  ```tsx file=<rootDir>/src/examples/ui/id-badge.tsx
+  ```
+</ComponentPreview>
+
+## Installation
+
+<Installation component="id-badge">
+  ```tsx file=<rootDir>/src/components/ui/id-badge.tsx
+  ```
+</Installation>
+
+## Usage
+
+```ts
+import { IdBadge } from "@/components/ui/id-badge"
+```
+
+```tsx
+<IdBadge
+  name="Ivan Petrov"
+  role="ENGINEER"
+  active
+/>
+```
+
+## Props
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `name` | `string` | required | Person's name |
+| `role` | `string` | `"COMRADE"` | Role/title displayed above name |
+| `src` | `string` | - | Avatar image URL |
+| `alt` | `string` | - | Avatar alt text |
+| `fallback` | `string` | - | Initials to show if no image |
+| `active` | `boolean` | `false` | Shows diagonal red stripe with star |
+| `variant` | `"default" \| "compact"` | `"default"` | Size variant |
+| `className` | `string` | - | Additional CSS classes |
+
+## Examples
+
+### With Image
+
+```tsx
+<IdBadge
+  name="Maria Volkov"
+  role="DIRECTOR"
+  src="/avatar.jpg"
+/>
+```
+
+### Active Status
+
+```tsx
+<IdBadge
+  name="Alexei Sorokin"
+  role="WORKER"
+  active
+/>
+```
+
+### Compact Variant
+
+```tsx
+<IdBadge
+  name="Yuri Gagarin"
+  variant="compact"
+/>
+```
+
+## Features
+
+- **Red left edge accent** for visual emphasis
+- **Diagonal active indicator** with star
+- **Automatic initials** from name when no image
+- **Compact variant** for tight spaces

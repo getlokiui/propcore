@@ -1,0 +1,54 @@
+---
+title: Hero Card
+description: A promotional card with headline, ribbon CTA button, and diagonal stripes.
+---
+
+<ComponentPreview component="hero-card">
+  ```tsx file=<rootDir>/src/examples/ui/hero-card.tsx
+  ```
+</ComponentPreview>
+
+## Installation
+
+<Installation component="hero-card">
+  ```tsx file=<rootDir>/src/components/ui/hero-card.tsx
+  ```
+</Installation>
+
+## Usage
+
+```ts
+import { HeroCard } from "@/components/ui/hero-card"
+```
+
+```tsx
+<HeroCard
+  headline="Join The Revolution"
+  subheadline="Stand with the workers"
+  description="Unite with fellow comrades in the struggle for a better tomorrow."
+  ctaText="Enlist Now"
+  accentNumber="01"
+  onCtaClick={() => console.log("Clicked")}
+/>
+```
+
+## Props
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `headline` | `string` | required | Main heading text |
+| `subheadline` | `string` | - | Optional italic subheading |
+| `description` | `string` | required | Body text |
+| `ctaText` | `string` | required | Button label |
+| `accentNumber` | `string` | `"01"` | Number in corner badge |
+| `onCtaClick` | `() => void` | - | Button click handler |
+| `className` | `string` | - | Additional CSS classes |
+
+## Features
+
+- **Diagonal red stripe** in corner
+- **Gold accent badge** with number
+- **Halftone texture overlay** for print feel
+- **Ribbon-style CTA button** with star icons
+- **Decorative dividers** and stripes
+- **Bottom bar** and status indicators

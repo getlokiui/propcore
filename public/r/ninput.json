@@ -1,0 +1,13 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "ninput",
+  "type": "registry:ui",
+  "title": "Input",
+  "files": [
+    {
+      "path": "src/components/ui/input.tsx",
+      "content": "import * as React from \"react\"\n\nimport { cn } from \"@/lib/utils\"\n\n// Corner accent variants for Propcore style\ntype CornerAccent = \"red\" | \"gold\" | \"black\" | \"none\"\n\ninterface InputProps extends React.ComponentProps<\"input\"> {\n  cornerAccent?: CornerAccent\n}\n\nconst cornerAccentClasses = {\n  red: \"border-b-main\",\n  gold: \"border-b-accent\",\n  black: \"border-b-border\",\n  none: \"\",\n}\n\nfunction Input({ className, type, cornerAccent = \"none\", ...props }: InputProps) {\n  if (cornerAccent === \"none\") {\n    return (\n      <input\n        type={type}\n        data-slot=\"input\"\n        className={cn(\n          \"flex h-11 w-full rounded-base border-3 border-border bg-secondary-background\",\n          \"selection:bg-main selection:text-main-foreground\",\n          \"px-4 py-2 text-sm font-base text-foreground\",\n          \"file:border-0 file:bg-transparent file:text-sm file:font-heading file:uppercase file:tracking-wider\",\n          \"placeholder:text-foreground/40\",\n          \"focus-visible:outline-hidden focus-visible:bg-white focus-visible:border-main\",\n          \"disabled:cursor-not-allowed disabled:opacity-50\",\n          \"transition-colors duration-100\",\n          className,\n        )}\n        {...props}\n      />\n    )\n  }\n\n  return (\n    <div className=\"relative\">\n      <input\n        type={type}\n        data-slot=\"input\"\n        className={cn(\n          \"flex h-11 w-full rounded-base border-3 border-border bg-secondary-background\",\n          \"selection:bg-main selection:text-main-foreground\",\n          \"px-4 py-2 text-sm font-base text-foreground\",\n          \"file:border-0 file:bg-transparent file:text-sm file:font-heading file:uppercase file:tracking-wider\",\n          \"placeholder:text-foreground/40\",\n          \"focus-visible:outline-hidden focus-visible:bg-white focus-visible:border-main\",\n          \"disabled:cursor-not-allowed disabled:opacity-50\",\n          \"transition-colors duration-100\",\n          className,\n        )}\n        {...props}\n      />\n      <div\n        className={cn(\n          \"absolute bottom-0 right-0 w-0 h-0\",\n          \"border-b-[12px] border-l-[12px] border-l-transparent\",\n          cornerAccentClasses[cornerAccent],\n        )}\n      />\n    </div>\n  )\n}\n\nexport { Input }\nexport type { InputProps, CornerAccent }\n",
+      "type": "registry:ui"
+    }
+  ]
+}

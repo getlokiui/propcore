@@ -1,0 +1,93 @@
+---
+title: Shapes
+description: 40 Soviet constructivist SVG shapes for agitational UI design.
+---
+
+<ComponentPreview component="shapes">
+  ```tsx file=<rootDir>/src/examples/ui/shapes.tsx
+  ```
+</ComponentPreview>
+
+## Installation
+
+<Installation component="shapes">
+  ```tsx file=<rootDir>/src/components/ui/shapes.tsx
+  ```
+</Installation>
+
+## Usage
+
+```ts
+import { SovietStar, RedWedge, Gear } from "@/components/ui/shapes"
+```
+
+```tsx
+<SovietStar size={64} />
+<RedWedge fill="var(--main)" stroke="var(--border)" size={80} />
+<Gear className="animate-spin" size={48} />
+```
+
+## Browse All Shapes
+
+Visit the [Shapes Gallery](/shapes) to see all 40 shapes with copy-to-clipboard functionality.
+
+## Props
+
+All shapes accept the same props:
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `size` | `number` | `64` | Width and height in pixels |
+| `fill` | `string` | `var(--main)` | Primary fill color |
+| `stroke` | `string` | `var(--border)` | Stroke/secondary color |
+| `className` | `string` | - | Additional CSS classes |
+
+## Available Shapes
+
+### Iconic (1-10)
+- **RedWedge** - El Lissitzky's "Beat the Whites" wedge
+- **SovietStar** - Classic 5-pointed star
+- **Gear** - Industrial cogwheel
+- **Arrow** - Bold directional arrow
+- **Lightning** - Angular lightning bolt
+- **Megaphone** - Loudspeaker cone
+- **Banner** - Pointed ribbon flag
+- **RadiatingLines** - Sunburst rays
+- **Circle** - Simple filled circle
+- **HalfCircle** - Rising sun horizon
+
+### Industrial (11-20)
+- **DiagonalBar** - Thick bar rotated 45deg
+- **CrossBars** - Plus sign thick bars
+- **CompassRose** - 4-pointed angular star
+- **Factory** - Factory chimney silhouette
+- **Hammer** - Simplified hammer shape
+- **Wheat** - Angular grain sheaf
+- **Fist** - Raised fist silhouette
+- **Tower** - Tatlin's Tower inspired
+- **ProunBlock** - Floating 3D rectangle
+- **DoubleArrow** - Arrows in conflict
+
+### Geometric (21-30)
+- **StackedBars** - Decreasing bar chart
+- **Chevron** - Angular V-shape
+- **Bracket** - Heavy square bracket
+- **AngularSpiral** - Squared-off spiral
+- **Trapezoid** - Perspective depth shape
+- **Parallelogram** - Leaning rectangle
+- **SplitCircle** - Bisected circle
+- **PiercedCircle** - Circle with wedge cutout
+- **ConcentricCircles** - Target pattern
+- **AngularBurst** - 8-pointed sharp star
+
+### Symbolic (31-40)
+- **Flag** - Rectangle with notch
+- **Book** - Open book silhouette
+- **Eye** - All-seeing eye
+- **PointingHand** - Directional hand
+- **Crescent** - Angular moon shape
+- **Exclamation** - Bold exclamation mark
+- **Question** - Bold question mark
+- **Equals** - Equality symbol
+- **Plus** - Thick plus shape
+- **Conflict** - Crossing X bars

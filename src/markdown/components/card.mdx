@@ -1,0 +1,134 @@
+---
+title: Card
+description: Displays a card with header, content, footer, and propaganda-style decorations.
+shadcnDocsLink: https://ui.shadcn.com/docs/components/card
+---
+
+<ComponentPreview component="card">
+  ```tsx file=<rootDir>/src/examples/ui/card.tsx
+  ```
+</ComponentPreview>
+
+## Installation
+
+<Installation component="card">
+  ```tsx file=<rootDir>/src/components/ui/card.tsx
+  ```
+</Installation>
+
+## Usage
+
+```ts
+import {
+  Card,
+  CardWithTexture,
+  CardBar,
+  CardContent,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+  CardDivider,
+  CardBadge,
+  CardAccentStripe,
+  CardStamp,
+} from "@/components/ui/card"
+```
+
+```tsx
+<Card className="w-full max-w-sm">
+  <CardHeader>
+    <CardTitle>Worker Bulletin</CardTitle>
+    <CardDescription>Daily report from the collective</CardDescription>
+  </CardHeader>
+  <CardContent>
+    <p>Production quota exceeded by 127%.</p>
+  </CardContent>
+  <CardFooter>
+    <Button className="w-full">Acknowledge</Button>
+  </CardFooter>
+</Card>
+```
+
+## Examples
+
+### Default
+
+Basic card with header, content, and footer.
+
+<ComponentPreview component="card" example="default">
+  ```tsx file=<rootDir>/src/examples/ui/card/index.tsx
+  ```
+</ComponentPreview>
+
+### With Texture
+
+Halftone dot overlay for authentic print texture.
+
+<ComponentPreview component="card" example="with-texture">
+  ```tsx file=<rootDir>/src/examples/ui/card/with-texture.tsx
+  ```
+</ComponentPreview>
+
+### With Bar
+
+Decorative top/bottom bars in black, red, or gold.
+
+<ComponentPreview component="card" example="with-bar">
+  ```tsx file=<rootDir>/src/examples/ui/card/with-bar.tsx
+  ```
+</ComponentPreview>
+
+### With Badge
+
+Circular gold badge in the corner for numbering or labels.
+
+<ComponentPreview component="card" example="with-badge">
+  ```tsx file=<rootDir>/src/examples/ui/card/with-badge.tsx
+  ```
+</ComponentPreview>
+
+### With Accent Stripe
+
+Diagonal red stripe cutting across the corner.
+
+<ComponentPreview component="card" example="with-accent-stripe">
+  ```tsx file=<rootDir>/src/examples/ui/card/with-accent-stripe.tsx
+  ```
+</ComponentPreview>
+
+### With Divider
+
+Decorative section divider with propcore styling.
+
+<ComponentPreview component="card" example="with-divider">
+  ```tsx file=<rootDir>/src/examples/ui/card/with-divider.tsx
+  ```
+</ComponentPreview>
+
+### Stamped
+
+Propaganda-style rotated corner stamp that breaks out of card bounds.
+
+<ComponentPreview component="card" example="stamped">
+  ```tsx file=<rootDir>/src/examples/ui/card/stamped.tsx
+  ```
+</ComponentPreview>
+
+### Rotated
+
+Add visual tension with slight rotation. Nothing sits perfectly straight.
+
+<ComponentPreview component="card" example="rotated">
+  ```tsx file=<rootDir>/src/examples/ui/card/rotated.tsx
+  ```
+</ComponentPreview>
+
+### Full Propaganda
+
+All card features combined for maximum Soviet aesthetic.
+
+<ComponentPreview component="card" example="full-propaganda">
+  ```tsx file=<rootDir>/src/examples/ui/card/full-propaganda.tsx
+  ```
+</ComponentPreview>

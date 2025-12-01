@@ -1,0 +1,20 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "calendar",
+  "type": "registry:ui",
+  "title": "Calendar",
+  "dependencies": [
+    "react-day-picker@8.10.1",
+    "date-fns"
+  ],
+  "registryDependencies": [
+    "https://propcore.audreyui.com/r/nbutton.json"
+  ],
+  "files": [
+    {
+      "path": "src/components/ui/calendar.tsx",
+      "content": "\"use client\"\n\nimport { ChevronLeft, ChevronRight } from \"lucide-react\"\nimport { DayPicker } from \"react-day-picker\"\n\nimport * as React from \"react\"\n\nimport { buttonVariants } from \"@/components/ui/button\"\n\nimport { cn } from \"@/lib/utils\"\n\nexport type CalendarProps = React.ComponentProps<typeof DayPicker>\n\nfunction Calendar({\n  className,\n  classNames,\n  showOutsideDays = true,\n  ...props\n}: CalendarProps) {\n  return (\n    <DayPicker\n      showOutsideDays={showOutsideDays}\n      className={cn(\n        \"rounded-base border-3 border-border bg-background p-3 font-heading shadow-shadow\",\n        className,\n      )}\n      classNames={{\n        months: \"flex flex-col sm:flex-row gap-2\",\n        month: \"flex flex-col gap-4\",\n        caption:\n          \"flex justify-center pt-1 relative items-center w-full text-foreground\",\n        caption_label: \"text-sm font-heading uppercase tracking-wider\",\n        nav: \"gap-1 flex items-center\",\n        nav_button: cn(\n          buttonVariants({ variant: \"secondary\" }),\n          \"size-7 p-0\",\n        ),\n        nav_button_previous: \"absolute left-1\",\n        nav_button_next: \"absolute right-1\",\n        table: \"w-full border-collapse space-y-1\",\n        head_row: \"flex\",\n        head_cell:\n          \"text-foreground/60 rounded-base w-9 font-heading uppercase text-[0.7rem] tracking-wider\",\n        row: \"flex w-full mt-2\",\n        cell: cn(\n          \"relative p-0 text-center text-sm focus-within:relative focus-within:z-20 [&:has([aria-selected])]:bg-main [&:has([aria-selected])]:text-main-foreground [&:has([aria-selected].day-range-end)]:rounded-r-base\",\n          props.mode === \"range\"\n            ? \"[&:has(>.day-range-end)]:rounded-r-base [&:has(>.day-range-start)]:rounded-l-base [&:has([aria-selected])]:bg-main first:[&:has([aria-selected])]:rounded-l-base last:[&:has([aria-selected])]:rounded-r-base\"\n            : \"[&:has([aria-selected])]:rounded-base [&:has([aria-selected])]:bg-main\",\n        ),\n        day: cn(\n          buttonVariants({ variant: \"ghost\" }),\n          \"size-9 p-0 font-base aria-selected:opacity-100\",\n        ),\n        day_range_start:\n          \"day-range-start aria-selected:bg-border aria-selected:text-background rounded-base\",\n        day_range_end:\n          \"day-range-end aria-selected:bg-border aria-selected:text-background rounded-base\",\n        day_selected: \"bg-main text-main-foreground rounded-base\",\n        day_today: \"bg-accent text-foreground font-heading\",\n        day_outside:\n          \"day-outside text-foreground/30 opacity-50 aria-selected:bg-main/50\",\n        day_disabled: \"text-foreground/30 opacity-50 rounded-base\",\n        day_range_middle: \"aria-selected:bg-main/50 aria-selected:text-main-foreground\",\n        day_hidden: \"invisible\",\n        ...classNames,\n      }}\n      components={{\n        IconLeft: ({ className, ...props }) => (\n          <ChevronLeft className={cn(\"size-4\", className)} {...props} />\n        ),\n        IconRight: ({ className, ...props }) => (\n          <ChevronRight className={cn(\"size-4\", className)} {...props} />\n        ),\n      }}\n      {...props}\n    />\n  )\n}\nCalendar.displayName = \"Calendar\"\n\nexport { Calendar }\n",
+      "type": "registry:ui"
+    }
+  ]
+}

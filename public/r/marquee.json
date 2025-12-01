@@ -1,0 +1,14 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "marquee",
+  "type": "registry:ui",
+  "title": "Marquee",
+  "files": [
+    {
+      "path": "src/components/ui/marquee.tsx",
+      "content": "import { cn } from \"@/lib/utils\"\n\n// Star separator for propcore style\nfunction MarqueeStar({ className }: { className?: string }) {\n  return (\n    <svg viewBox=\"0 0 24 24\" fill=\"currentColor\" className={cn(\"size-6 text-main shrink-0\", className)}>\n      <path d=\"M12 2l2.4 7.4h7.6l-6 4.6 2.3 7-6.3-4.6-6.3 4.6 2.3-7-6-4.6h7.6z\" />\n    </svg>\n  )\n}\n\ninterface MarqueeProps {\n  items: string[]\n  className?: string\n  speed?: \"slow\" | \"normal\" | \"fast\"\n  showStars?: boolean\n}\n\nexport default function Marquee({\n  items,\n  className,\n  speed = \"normal\",\n  showStars = true,\n}: MarqueeProps) {\n  const speedClass = {\n    slow: \"animate-marquee-slow\",\n    normal: \"animate-marquee\",\n    fast: \"animate-marquee-fast\",\n  }[speed]\n\n  const speedClass2 = {\n    slow: \"animate-marquee2-slow\",\n    normal: \"animate-marquee2\",\n    fast: \"animate-marquee2-fast\",\n  }[speed]\n\n  const renderItems = () => (\n    <>\n      {items.map((item, index) => (\n        <span key={`${item}-${index}`} className=\"flex items-center gap-4\">\n          {showStars && <MarqueeStar />}\n          <span className=\"font-heading text-4xl uppercase tracking-wider\">\n            {item}\n          </span>\n        </span>\n      ))}\n    </>\n  )\n\n  return (\n    <div\n      data-slot=\"marquee\"\n      className={cn(\n        \"relative flex w-full overflow-x-hidden\",\n        \"border-y-3 border-border\",\n        \"bg-secondary-background text-foreground\",\n        className,\n      )}\n    >\n      {/* Halftone texture overlay */}\n      <div\n        className=\"absolute inset-0 pointer-events-none opacity-[0.03] mix-blend-multiply z-10\"\n        style={{\n          backgroundImage: `radial-gradient(circle, currentColor 1px, transparent 1px)`,\n          backgroundSize: \"4px 4px\",\n        }}\n      />\n\n      <div className={cn(\"flex items-center gap-8 whitespace-nowrap py-8\", speedClass)}>\n        {renderItems()}\n      </div>\n\n      <div className={cn(\"absolute top-0 flex items-center gap-8 whitespace-nowrap py-8\", speedClass2)}>\n        {renderItems()}\n      </div>\n    </div>\n  )\n}\n\nexport { MarqueeStar }\n",
+      "type": "registry:ui"
+    }
+  ],
+  "docs": "Make sure there is enough content in `items` so it loops perfectly. Visit https://jackwhiting.co.uk/posts/creating-a-marquee-with-tailwind to learn more."
+}

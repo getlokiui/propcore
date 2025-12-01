@@ -1,0 +1,16 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "scroll-area",
+  "type": "registry:ui",
+  "title": "Scroll area",
+  "dependencies": [
+    "@radix-ui/react-scroll-area"
+  ],
+  "files": [
+    {
+      "path": "src/components/ui/scroll-area.tsx",
+      "content": "\"use client\"\n\nimport * as ScrollAreaPrimitive from \"@radix-ui/react-scroll-area\"\n\nimport * as React from \"react\"\n\nimport { cn } from \"@/lib/utils\"\n\nfunction ScrollArea({\n  className,\n  children,\n  ...props\n}: React.ComponentProps<typeof ScrollAreaPrimitive.Root>) {\n  return (\n    <ScrollAreaPrimitive.Root\n      data-slot=\"scroll-area\"\n      className={cn(\"relative overflow-hidden\", className)}\n      {...props}\n    >\n      <ScrollAreaPrimitive.Viewport className=\"h-full w-full font-base rounded-[inherit]\">\n        {children}\n      </ScrollAreaPrimitive.Viewport>\n      <ScrollBar />\n      <ScrollAreaPrimitive.Corner className=\"bg-border\" />\n    </ScrollAreaPrimitive.Root>\n  )\n}\n\nfunction ScrollBar({\n  className,\n  orientation = \"vertical\",\n  ...props\n}: React.ComponentProps<typeof ScrollAreaPrimitive.ScrollAreaScrollbar>) {\n  return (\n    <ScrollAreaPrimitive.ScrollAreaScrollbar\n      data-slot=\"scroll-area-scrollbar\"\n      orientation={orientation}\n      className={cn(\n        \"flex touch-none select-none transition-colors\",\n        orientation === \"vertical\" &&\n          \"h-full w-3 border-l-2 border-l-border p-[2px]\",\n        orientation === \"horizontal\" &&\n          \"h-3 flex-col border-t-2 border-t-border p-[2px]\",\n        className,\n      )}\n      {...props}\n    >\n      <ScrollAreaPrimitive.ScrollAreaThumb\n        className={cn(\n          \"relative flex-1\",\n          \"rounded-base\",\n          \"bg-main\",\n          \"transition-colors\",\n          \"hover:bg-main/80\",\n        )}\n      />\n    </ScrollAreaPrimitive.ScrollAreaScrollbar>\n  )\n}\n\nexport { ScrollArea, ScrollBar }\n",
+      "type": "registry:ui"
+    }
+  ]
+}
