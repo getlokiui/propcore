@@ -27,6 +27,18 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion"
+import {
+  CardWithTexture,
+  CardBar,
+  CardContent,
+  CardHeader,
+  CardTitle,
+  CardDescription,
+  CardDivider,
+  CardAccentStripe,
+  CardStamp,
+} from "@/components/ui/card"
+import { Button } from "@/components/ui/button"
 
 export default function Home() {
   const { Tabs, TabsContent, TabsList, TabsTrigger } = sharedComponents
@@ -39,36 +51,74 @@ export default function Home() {
           className="xl:-right-[130px] md:-right-[200px] lg:block hidden"
           reverse
         />
-        <div className="mx-auto w-container max-w-full">
-          <div className="flex flex-col items-center text-center">
-            <h1 className="leading-normal">
-              Design as a tool, <br />{" "}
-              <span className="relative px-2 sm:mr-2 mr-0 md:[&_svg]:size-[45px] sm:[&_svg]:size-7 bg-main/50 rounded-base border-2 border-border/40 dark:border-border/70">
-                not an ornament
+        <CardWithTexture className="w-full max-w-[500px] overflow-visible">
+          {/* Corner stamp */}
+          <CardStamp position="top-right" />
+
+          {/* Diagonal stripe */}
+          <CardAccentStripe />
+
+          {/* Top bar */}
+          <CardBar variant="black" />
+
+          <CardHeader className="pt-8 text-center">
+            <CardTitle className="text-4xl md:text-5xl lg:text-6xl leading-tight">
+              Every pixel serves
+              <br />
+              <span className="relative inline-block px-3 mt-2 bg-main/50 rounded-base border-2 border-border/40">
+                the people
                 <SovietStar
-                  className="absolute sm:block hidden md:-bottom-4 md:-right-5 -bottom-2.5 -right-2.5"
-                  size={45}
+                  className="absolute -bottom-3 -right-4 md:-bottom-4 md:-right-5"
+                  size={35}
                 />
                 <SovietStar
-                  className="absolute sm:block hidden md:-top-4 md:-left-5 -top-2.5 -left-2.5"
-                  size={45}
+                  className="absolute -top-3 -left-4 md:-top-4 md:-left-5"
+                  size={35}
                 />
               </span>
-            </h1>
+            </CardTitle>
+            <CardDescription className="text-lg md:text-xl mt-4">
+              Neo-constructivist components based on shadcn/ui
+            </CardDescription>
+          </CardHeader>
 
-            <p className="leading-snug w-full md:mt-[50px] md:mb-[60px] sm:mt-12 my-9 sm:mb-10 2xl:text-3xl xl:text-2xl lg:text-2xl xl:w-full lg:w-2/3 md:w-full md:text-2xl sm:text-xl text-xl">
-              A collection of neo-constructivist-styled components based on shadcn/ui.
-            </p>
+          <CardDivider />
 
-            <Link
-              className="flex items-center gap-2.5 w-max text-main-foreground rounded-base border-2 border-border bg-main md:px-10 px-4 md:py-3 py-2 md:text-[22px] text-base shadow-shadow transition-all hover:translate-x-boxShadowX hover:translate-y-boxShadowY hover:shadow-none"
-              href={"/docs"}
-            >
-              Read the docs
-              <ArrowUpRight className="md:size-[30px] size-5" />
+          <CardContent className="text-center">
+            {/* Diagonal stripes decoration */}
+            <div className="flex gap-1 mb-6 justify-center">
+              {[...Array(12)].map((_, i) => (
+                <div
+                  key={i}
+                  className={`w-2 h-4 -skew-x-12 ${
+                    i % 3 === 0 ? "bg-main" : i % 3 === 1 ? "bg-border" : "bg-accent"
+                  }`}
+                />
+              ))}
+            </div>
+
+            <Link href="/docs">
+              <Button size="lg" className="w-full" arrow="right">
+                Seize the components
+              </Button>
             </Link>
+          </CardContent>
+
+          {/* Bottom decoration */}
+          <div className="flex justify-between items-center px-6 py-4 border-t-3 border-border">
+            <div className="flex items-center gap-2">
+              <div className="w-3 h-3 rounded-full bg-main border-2 border-border" />
+              <div className="w-3 h-3 rounded-full bg-accent border-2 border-border" />
+              <div className="w-3 h-3 rounded-full bg-border" />
+            </div>
+            <span className="text-xs font-heading tracking-widest uppercase">
+              EST. MMXXV
+            </span>
           </div>
-        </div>
+
+          {/* Bottom bar */}
+          <CardBar variant="red" className="h-3 border-t-3 border-border" />
+        </CardWithTexture>
       </main>
       <div>
         <Marquee
@@ -306,7 +356,7 @@ export default function Home() {
             className="flex items-center gap-2.5 w-max text-foreground rounded-base border-2 border-border bg-background dark:bg-secondary-background md:px-10 px-4 md:py-3 py-2 md:text-[22px] text-base shadow-shadow transition-all hover:translate-x-boxShadowX hover:translate-y-boxShadowY hover:shadow-none"
             href={"/docs"}
           >
-            Read the docs
+            Seize the components
             <ArrowUpRight className="md:size-[30px] size-5" />
           </Link>
 

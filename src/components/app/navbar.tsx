@@ -7,7 +7,7 @@ import { StarIcon } from "@/components/ui/button"
 async function getRepoData() {
   try {
     const res = await fetch(
-      "https://api.github.com/repos/audreyui/propcore-registry",
+      "https://api.github.com/repos/audreyui/propcore",
       {
         cache: "force-cache",
         headers: {
@@ -38,10 +38,13 @@ async function Navbar() {
       <div className="mx-auto flex w-[1300px] text-foreground max-w-full items-center justify-between">
         <div className="flex items-center xl:gap-10 gap-10">
           <Link
-            className="text-[22px] size-8 rounded-base flex bg-main text-main-foreground border-3 border-border items-center justify-center font-heading"
+            className="flex items-center gap-2"
             href={"/"}
           >
-            <StarIcon className="size-5" />
+            <div className="text-[22px] size-8 rounded-base flex bg-main text-main-foreground border-3 border-border items-center justify-center font-heading">
+              <StarIcon className="size-5" />
+            </div>
+            <span className="font-heading text-xl uppercase tracking-wider">propcore</span>
           </Link>
 
           <div className="items-center text-base font-base xl:gap-10 lg:flex gap-10 hidden uppercase tracking-wider">
@@ -63,7 +66,7 @@ async function Navbar() {
           <div className="flex items-center justify-end gap-4">
             <a
               target="_blank"
-              href="https://github.com/audreyui/propcore-registry"
+              href="https://github.com/audreyui/propcore"
               className="flex gap-2 items-center justify-center rounded-base border-2 border-border shadow-shadow px-1.5 h-9 transition-all hover:translate-x-boxShadowX hover:translate-y-boxShadowY hover:shadow-none"
             >
               {starsCount && (

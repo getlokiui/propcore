@@ -3,7 +3,7 @@
 ## Project Structure
 
 ```
-propcore-registry/
+propcore/
 ├── src/
 │   ├── components/ui/       # All UI components (no blocks folder)
 │   ├── examples/ui/         # Example files for docs
