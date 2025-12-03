@@ -41,7 +41,7 @@ function DoubleArrowRight({ className }: { className?: string }) {
 }
 
 const buttonVariants = cva(
-  "inline-flex items-center justify-center whitespace-nowrap rounded-base text-sm font-heading uppercase tracking-wider ring-offset-white transition-all duration-100 gap-2 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-border focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50",
+  "inline-flex flex-row items-center justify-center whitespace-nowrap rounded-base text-sm font-heading uppercase tracking-wider ring-offset-white transition-all duration-100 gap-2 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-border focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50",
   {
     variants: {
       variant: {
@@ -147,7 +147,7 @@ function Button({
         </div>
       )}
       {renderLeftDecor()}
-      <span className="relative z-10">{children}</span>
+      {children}
       {renderRightDecor()}
     </Comp>
   )

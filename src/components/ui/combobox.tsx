@@ -29,22 +29,6 @@ function ComboboxStar({ className }: { className?: string }) {
   )
 }
 
-// Propcore chevron icon (angular)
-function ComboboxChevron({ className }: { className?: string }) {
-  return (
-    <svg
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="3"
-      strokeLinecap="square"
-      className={cn("size-4", className)}
-    >
-      <path d="M6 9L12 15L18 9" />
-    </svg>
-  )
-}
-
 const frameworks = [
   {
     value: "next.js",
@@ -76,22 +60,17 @@ function ComboboxDemo() {
     <Popover open={open} onOpenChange={setOpen}>
       <PopoverTrigger asChild>
         <Button
-          variant="noShadow"
+          variant="neutral"
           role="combobox"
           aria-expanded={open}
-          className={cn(
-            "w-[200px] justify-between",
-            "border-3 border-border",
-            "font-heading uppercase tracking-wider",
-          )}
+          className="w-[200px] justify-between"
         >
-          {value
-            ? frameworks.find((framework) => framework.value === value)?.label
-            : "Select framework..."}
-          <ComboboxChevron className={cn(
-            "ml-2 shrink-0 transition-transform",
-            open && "rotate-180"
-          )} />
+          <span className="min-w-0 flex-1 truncate font-base normal-case tracking-normal">
+            {value
+              ? frameworks.find((framework) => framework.value === value)?.label
+              : "Select framework..."}
+          </span>
+          <ChevronsUpDown className="size-4 shrink-0 opacity-50" />
         </Button>
       </PopoverTrigger>
       <PopoverContent className="w-[200px] border-0! p-0 font-base">
@@ -124,4 +103,4 @@ function ComboboxDemo() {
   )
 }
 
-export { ComboboxDemo, ComboboxStar, ComboboxChevron }
+export { ComboboxDemo, ComboboxStar }

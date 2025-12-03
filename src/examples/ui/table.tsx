@@ -12,18 +12,57 @@ import {
 // Star icon for table headers
 function TableStar({ className }: { className?: string }) {
   return (
-    <svg viewBox="0 0 24 24" fill="currentColor" className={className || "size-3 inline-block mr-2"}>
+    <svg
+      viewBox="0 0 24 24"
+      fill="currentColor"
+      className={className || "size-3 inline-block mr-2"}
+    >
       <path d="M12 2l2.4 7.4h7.6l-6 4.6 2.3 7-6.3-4.6-6.3 4.6 2.3-7-6-4.6h7.6z" />
     </svg>
   )
 }
 
 const inventory = [
-  { sku: "BEAN-001", description: "Revolutionary Dark Roast", origin: "ETHIOPIA", qty: 500, price: 24.99, total: 12495.00 },
-  { sku: "BEAN-002", description: "Proletariat Blend", origin: "COLOMBIA", qty: 320, price: 19.99, total: 6396.80 },
-  { sku: "BEAN-003", description: "Collective Cold Brew", origin: "BRAZIL", qty: 180, price: 29.99, total: 5398.20 },
-  { sku: "MERCH-001", description: "Propaganda Mug (Red)", origin: "LOCAL", qty: 1200, price: 14.99, total: 17988.00 },
-  { sku: "MERCH-002", description: "Hammer & Bean T-Shirt", origin: "LOCAL", qty: 450, price: 34.99, total: 15745.50 },
+  {
+    sku: "BEAN-001",
+    description: "Revolutionary Dark Roast",
+    origin: "ETHIOPIA",
+    qty: 500,
+    price: 24.99,
+    total: 12495.0,
+  },
+  {
+    sku: "BEAN-002",
+    description: "Proletariat Blend",
+    origin: "COLOMBIA",
+    qty: 320,
+    price: 19.99,
+    total: 6396.8,
+  },
+  {
+    sku: "BEAN-003",
+    description: "Collective Cold Brew",
+    origin: "BRAZIL",
+    qty: 180,
+    price: 29.99,
+    total: 5398.2,
+  },
+  {
+    sku: "MERCH-001",
+    description: "Propaganda Mug (Red)",
+    origin: "LOCAL",
+    qty: 1200,
+    price: 14.99,
+    total: 17988.0,
+  },
+  {
+    sku: "MERCH-002",
+    description: "Hammer & Bean T-Shirt",
+    origin: "LOCAL",
+    qty: 450,
+    price: 34.99,
+    total: 15745.5,
+  },
 ]
 
 export default function TableDemo() {
@@ -36,8 +75,18 @@ export default function TableDemo() {
           Inventory Manifest
         </h3>
         {/* Corner accent */}
-        <div className="absolute top-0 right-0 w-0 h-0" style={{ borderTop: "40px solid var(--main)", borderLeft: "40px solid transparent" }} />
-        <svg viewBox="0 0 24 24" fill="var(--main-foreground)" className="absolute top-2 right-2 size-4">
+        <div
+          className="absolute top-0 right-0 w-0 h-0"
+          style={{
+            borderTop: "40px solid var(--main)",
+            borderLeft: "40px solid transparent",
+          }}
+        />
+        <svg
+          viewBox="0 0 24 24"
+          fill="var(--main-foreground)"
+          className="absolute top-2 right-2 size-4"
+        >
           <path d="M12 2l2.4 7.4h7.6l-6 4.6 2.3 7-6.3-4.6-6.3 4.6 2.3-7-6-4.6h7.6z" />
         </svg>
       </div>
@@ -45,12 +94,12 @@ export default function TableDemo() {
       <Table>
         <TableHeader>
           <TableRow className="hover:bg-border">
-            <TableHead className="w-[120px]"><TableStar className="size-3 text-accent" />SKU</TableHead>
-            <TableHead><TableStar className="size-3 text-accent" />Item Description</TableHead>
-            <TableHead><TableStar className="size-3 text-accent" />Origin</TableHead>
-            <TableHead className="text-right"><TableStar className="size-3 text-accent" />Qty</TableHead>
-            <TableHead className="text-right"><TableStar className="size-3 text-accent" />Unit Price</TableHead>
-            <TableHead className="text-right"><TableStar className="size-3 text-accent" />Total Value</TableHead>
+            <TableHead className="w-[120px]">SKU</TableHead>
+            <TableHead>Item Description</TableHead>
+            <TableHead>Origin</TableHead>
+            <TableHead>Qty</TableHead>
+            <TableHead>Unit Price</TableHead>
+            <TableHead>Total Value</TableHead>
           </TableRow>
         </TableHeader>
         <TableBody>
@@ -59,9 +108,11 @@ export default function TableDemo() {
               <TableCell className="font-heading">{item.sku}</TableCell>
               <TableCell className="font-heading">{item.description}</TableCell>
               <TableCell>{item.origin}</TableCell>
-              <TableCell className="text-right">{item.qty}</TableCell>
-              <TableCell className="text-right">${item.price.toFixed(2)}</TableCell>
-              <TableCell className="text-right font-heading">${item.total.toFixed(2)}</TableCell>
+              <TableCell>{item.qty}</TableCell>
+              <TableCell>${item.price.toFixed(2)}</TableCell>
+              <TableCell className="font-heading">
+                ${item.total.toFixed(2)}
+              </TableCell>
             </TableRow>
           ))}
         </TableBody>
@@ -73,10 +124,6 @@ export default function TableDemo() {
           </TableRow>
         </TableFooter>
       </Table>
-
-      <TableCaption className="mt-4">
-        <TableStar className="size-3" /> For Internal Distribution Only <TableStar className="size-3" />
-      </TableCaption>
     </div>
   )
 }

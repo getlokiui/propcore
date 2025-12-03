@@ -88,7 +88,7 @@ function SheetContent({
         {side === "top" && <div className="absolute bottom-0 left-0 right-0 h-1 bg-main" />}
         {side === "bottom" && <div className="absolute top-0 left-0 right-0 h-1 bg-main" />}
         <div className="relative z-10 flex flex-col h-full">{children}</div>
-        <SheetPrimitive.Close className="absolute right-4 top-4 z-20 rounded-base p-1 border-2 border-transparent hover:border-border hover:bg-main hover:text-main-foreground transition-colors focus:outline-hidden focus:ring-2 focus:ring-main focus:ring-offset-2 disabled:pointer-events-none">
+        <SheetPrimitive.Close className="absolute right-4 top-4 z-20 rounded-base p-1 border-3 border-transparent hover:border-border hover:bg-main hover:text-main-foreground transition-colors focus:outline-hidden focus:ring-2 focus:ring-main focus:ring-offset-2 disabled:pointer-events-none">
           <X className="size-4" />
           <span className="sr-only">Close</span>
         </SheetPrimitive.Close>

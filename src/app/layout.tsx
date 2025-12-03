@@ -11,6 +11,7 @@ import { Toaster } from "@/components/ui/sonner"
 
 const oswald = Oswald({
   subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
   display: "swap",
   adjustFontFallback: false,
 })

@@ -20,6 +20,7 @@ function NavigationMenu({
     <NavigationMenuPrimitive.Root
       data-slot="navigation-menu"
       data-viewport={viewport}
+      delayDuration={100}
       className={cn(
         "group/navigation-menu relative z-10 flex max-w-max flex-1 items-center justify-center",
         "rounded-base border-3 border-border",

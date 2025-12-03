@@ -244,9 +244,8 @@ function SelectItem({
         // Hover/focus turns red
         "hover:bg-main hover:text-main-foreground",
         "focus:bg-main focus:text-main-foreground",
-        // Selected state with gold tint
-        "data-[state=checked]:bg-accent/30",
-        "data-[state=checked]:hover:bg-main data-[state=checked]:hover:text-main-foreground",
+        // Selected state - red background
+        "data-[state=checked]:bg-main data-[state=checked]:text-main-foreground",
         // Disabled
         "data-[disabled]:pointer-events-none data-[disabled]:opacity-50",
         className,

@@ -10,12 +10,29 @@ export function CopyButton({ text }: { text: string }) {
   const [isCopied, setIsCopied] = useState(false)
 
   const copy = async () => {
-    await navigator.clipboard.writeText(text)
-    setIsCopied(true)
+    try {
+      if (navigator?.clipboard?.writeText) {
+        await navigator.clipboard.writeText(text)
+      } else {
+        // Fallback for older browsers or non-HTTPS
+        const textarea = document.createElement("textarea")
+        textarea.value = text
+        textarea.style.position = "fixed"
+        textarea.style.opacity = "0"
+        document.body.appendChild(textarea)
+        textarea.select()
+        document.execCommand("copy")
+        document.body.removeChild(textarea)
+      }
 
-    setTimeout(() => {
-      setIsCopied(false)
-    }, 1500)
+      setIsCopied(true)
+      setTimeout(() => {
+        setIsCopied(false)
+      }, 1500)
+    } catch {
+      // If all else fails, at least don't crash
+      console.error("Failed to copy to clipboard")
+    }
   }
 
   return (

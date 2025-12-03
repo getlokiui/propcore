@@ -57,7 +57,7 @@ export default function Styling() {
     },
     setColor,
   ] = useState(defaultColorPalette)
-  const [borderRadius, setBorderRadius] = useState(5)
+  const [borderRadius, setBorderRadius] = useState(0)
   const [boxShadowLength, setBoxShadowLength] = useState([4, 4])
   const [fontWeight, setFontWeight] = useState([700, 500])
 
@@ -192,7 +192,7 @@ export default function Styling() {
     r.style.removeProperty("--light-main")
 
     setColor(defaultColorPalette)
-    setBorderRadius(5)
+    setBorderRadius(0)
     setBoxShadowLength([4, 4])
     setFontWeight([700, 500])
 
@@ -332,7 +332,7 @@ export default function Styling() {
             <div className="grid gap-3">
               <Label htmlFor="border-radius">Horizontal Box Shadow</Label>
               <div className="grid grid-cols-5 gap-2">
-                {[-4, -2, 0, 2, 4].map((btn) => (
+                {[2, 4, 6, 8, 10].map((btn) => (
                   <Button
                     onClick={() => updateHorizontalBoxShadow(btn)}
                     className={cn(
@@ -352,7 +352,7 @@ export default function Styling() {
             <div className="grid gap-3">
               <Label htmlFor="border-radius">Vertical Box Shadow</Label>
               <div className="grid grid-cols-5 gap-2">
-                {[-4, -2, 0, 2, 4].map((btn) => (
+                {[2, 4, 6, 8, 10].map((btn) => (
                   <Button
                     onClick={() => updateVerticalBoxShadow(btn)}
                     className={cn(
@@ -372,7 +372,7 @@ export default function Styling() {
             <div className="grid gap-3">
               <Label htmlFor="border-radius">Heading Font Weight</Label>
               <div className="grid grid-cols-3 gap-2">
-                {[700, 800, 900].map((btn) => (
+                {[500, 600, 700].map((btn) => (
                   <Button
                     onClick={() => updateHeadingFontWeight(btn)}
                     className={cn(
@@ -392,7 +392,7 @@ export default function Styling() {
             <div className="grid gap-3">
               <Label htmlFor="border-radius">Base Font Weight</Label>
               <div className="grid grid-cols-3 gap-2">
-                {[500, 600, 700].map((btn) => (
+                {[400, 500, 600].map((btn) => (
                   <Button
                     onClick={() => updateBaseFontWeight(btn)}
                     className={cn(

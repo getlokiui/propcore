@@ -22,8 +22,8 @@ function TableHeader({ className, ...props }: React.ComponentProps<"thead">) {
     <thead
       data-slot="table-header"
       className={cn(
-        "bg-border text-background",
-        "[&_tr]:border-b-[4px] [&_tr]:border-main",
+        "bg-main text-main-foreground",
+        "[&_tr]:border-b-3 [&_tr]:border-border",
         className,
       )}
       {...props}
@@ -67,7 +67,7 @@ function TableRow({ className, ...props }: React.ComponentProps<"tr">) {
       className={cn(
         "border-b-3 border-border",
         "transition-colors font-base",
-        "hover:bg-accent/20",
+        "hover:bg-secondary-background",
         "data-[state=selected]:bg-main data-[state=selected]:text-main-foreground",
         className,
       )}
@@ -83,10 +83,8 @@ function TableHead({ className, ...props }: React.ComponentProps<"th">) {
       className={cn(
         "h-12 px-4 text-left align-middle",
         "font-heading uppercase tracking-wider text-xs",
-        "border-r-3 border-border/30 last:border-r-0",
-        "transition-colors",
-        "hover:bg-foreground hover:text-background",
-        "[&:has([role=checkbox])]:pr-0",
+        "border-r-3 border-border last:border-r-0",
+        "[&:has([role=checkbox])]:px-4 [&:has([role=checkbox])]:text-center",
         className,
       )}
       {...props}
@@ -99,9 +97,10 @@ function TableCell({ className, ...props }: React.ComponentProps<"td">) {
     <td
       data-slot="table-cell"
       className={cn(
-        "p-4 align-middle",
-        "border-r-3 border-border/20 last:border-r-0",
-        "[&:has([role=checkbox])]:pr-0",
+        "p-4 align-middle text-left",
+        "border-r-3 border-border last:border-r-0",
+        "[&:has([role=checkbox])]:text-center",
+        "[&:has(button)]:text-center",
         className,
       )}
       {...props}
@@ -112,12 +111,12 @@ function TableCell({ className, ...props }: React.ComponentProps<"td">) {
 function TableCaption({
   className,
   ...props
-}: React.ComponentProps<"caption">) {
+}: React.ComponentProps<"div">) {
   return (
-    <caption
+    <div
       data-slot="table-caption"
       className={cn(
-        "mt-4 text-sm text-foreground/70 font-base uppercase tracking-wide",
+        "mt-4 text-sm text-foreground/70 font-base uppercase tracking-wide text-center",
         className,
       )}
       {...props}

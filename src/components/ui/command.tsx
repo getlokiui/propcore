@@ -157,7 +157,7 @@ function CommandItem({
         "relative flex cursor-default select-none items-center gap-3",
         "rounded-base px-3 py-2",
         "text-sm font-base",
-        "border-2 border-transparent",
+        "border-3 border-transparent",
         "transition-colors",
         "aria-selected:bg-main aria-selected:text-main-foreground aria-selected:border-border",
         "data-[disabled=true]:pointer-events-none data-[disabled=true]:opacity-50",

@@ -72,8 +72,8 @@ Key fields:
 ## Design System Rules
 
 ### Borders
-- Use `border-3` (3px) for most components
-- `border-2` only for small decorative elements (dots, legend items)
+- Use `border-3` (4px) for all components - this is the standard
+- `border-2` only for tiny decorative elements (≤12px dots, chart legend indicators)
 
 ### Shadows
 - Always solid offset, never blur

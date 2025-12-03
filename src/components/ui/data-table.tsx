@@ -12,30 +12,11 @@ import {
   useReactTable,
   VisibilityState,
 } from "@tanstack/react-table"
-import { MoreHorizontal } from "lucide-react"
+import { ArrowUpDown, ChevronDown, MoreHorizontal } from "lucide-react"
 
 import * as React from "react"
 
 import { cn } from "@/lib/utils"
-
-// Propcore sort icon (angular arrows)
-function DataTableSortIcon({ className }: { className?: string }) {
-  return (
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="square" className={cn("size-4 ml-2", className)}>
-      <path d="M8 10L12 6L16 10" />
-      <path d="M8 14L12 18L16 14" />
-    </svg>
-  )
-}
-
-// Propcore chevron icon (angular)
-function DataTableChevron({ className }: { className?: string }) {
-  return (
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="square" className={cn("size-4 ml-2", className)}>
-      <path d="M6 9L12 15L18 9" />
-    </svg>
-  )
-}
 
 import { Button } from "@/components/ui/button"
 import { Checkbox } from "@/components/ui/checkbox"
@@ -59,36 +40,18 @@ import {
 } from "@/components/ui/table"
 
 const data: Payment[] = [
-  {
-    id: "m5gr84i9",
-    amount: 316,
-    status: "success",
-    email: "ken99@yahoo.com",
-  },
-  {
-    id: "3u1reuv4",
-    amount: 242,
-    status: "success",
-    email: "Abe45@gmail.com",
-  },
-  {
-    id: "derv1ws0",
-    amount: 837,
-    status: "processing",
-    email: "Monserrat44@gmail.com",
-  },
-  {
-    id: "5kma53ae",
-    amount: 874,
-    status: "success",
-    email: "Silas22@gmail.com",
-  },
-  {
-    id: "bhqecj4p",
-    amount: 721,
-    status: "failed",
-    email: "carmella@hotmail.com",
-  },
+  { id: "m5gr84i9", amount: 316, status: "success", email: "ken99@yahoo.com" },
+  { id: "3u1reuv4", amount: 242, status: "success", email: "abe45@gmail.com" },
+  { id: "derv1ws0", amount: 837, status: "processing", email: "monserrat44@gmail.com" },
+  { id: "5kma53ae", amount: 874, status: "success", email: "silas22@gmail.com" },
+  { id: "bhqecj4p", amount: 721, status: "failed", email: "carmella@hotmail.com" },
+  { id: "xk8d92jf", amount: 150, status: "pending", email: "worker01@collective.org" },
+  { id: "pw3n45ty", amount: 520, status: "success", email: "comrade.ivan@mail.ru" },
+  { id: "qr7m82xz", amount: 943, status: "processing", email: "boris.factory@work.com" },
+  { id: "lk4j67nb", amount: 287, status: "success", email: "natasha.design@studio.io" },
+  { id: "vc9s34hg", amount: 612, status: "failed", email: "dmitri.code@dev.net" },
+  { id: "mn2w89pq", amount: 445, status: "success", email: "olga.test@qa.org" },
+  { id: "rt6y23df", amount: 789, status: "pending", email: "sergei.ops@infra.com" },
 ]
 
 export type Payment = {
@@ -102,45 +65,39 @@ export const columns: ColumnDef<Payment>[] = [
   {
     id: "select",
     header: ({ table }) => (
-      <Checkbox
-        checked={
-          table.getIsAllPageRowsSelected() ||
-          (table.getIsSomePageRowsSelected() && "indeterminate")
-        }
-        onCheckedChange={(value) => table.toggleAllPageRowsSelected(!!value)}
-        aria-label="Select all"
-      />
+      <div className="flex items-center justify-center">
+        <Checkbox
+          checked={
+            table.getIsAllPageRowsSelected() ||
+            (table.getIsSomePageRowsSelected() && "indeterminate")
+          }
+          onCheckedChange={(value) => table.toggleAllPageRowsSelected(!!value)}
+          aria-label="Select all"
+        />
+      </div>
     ),
     cell: ({ row }) => (
-      <Checkbox
-        checked={row.getIsSelected()}
-        onCheckedChange={(value) => row.toggleSelected(!!value)}
-        aria-label="Select row"
-      />
+      <div className="flex items-center justify-center">
+        <Checkbox
+          checked={row.getIsSelected()}
+          onCheckedChange={(value) => row.toggleSelected(!!value)}
+          aria-label="Select row"
+        />
+      </div>
     ),
     enableSorting: false,
     enableHiding: false,
   },
   {
-    accessorKey: "status",
-    header: "Status",
-    cell: ({ row }) => (
-      <div className="capitalize">{row.getValue("status")}</div>
-    ),
-  },
-  {
     accessorKey: "email",
     header: ({ column }) => {
       return (
-        <Button
-          variant="noShadow"
-          size="sm"
-          className="font-heading uppercase tracking-wider"
+        <button
+          className="font-heading uppercase tracking-wider text-xs hover:opacity-70 transition-opacity"
           onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
         >
           Email
-          <DataTableSortIcon />
-        </Button>
+        </button>
       )
     },
     cell: ({ row }) => <div className="lowercase">{row.getValue("email")}</div>,
@@ -167,25 +124,27 @@ export const columns: ColumnDef<Payment>[] = [
       const payment = row.original
 
       return (
-        <DropdownMenu>
-          <DropdownMenuTrigger asChild>
-            <Button variant="noShadow" className="size-8 p-0">
-              <span className="sr-only">Open menu</span>
-              <MoreHorizontal />
-            </Button>
-          </DropdownMenuTrigger>
-          <DropdownMenuContent align="end">
-            <DropdownMenuLabel>Actions</DropdownMenuLabel>
-            <DropdownMenuItem
-              onClick={() => navigator.clipboard.writeText(payment.id)}
-            >
-              Copy payment ID
-            </DropdownMenuItem>
-            <DropdownMenuSeparator />
-            <DropdownMenuItem>View customer</DropdownMenuItem>
-            <DropdownMenuItem>View payment details</DropdownMenuItem>
-          </DropdownMenuContent>
-        </DropdownMenu>
+        <div className="flex items-center justify-center">
+          <DropdownMenu>
+            <DropdownMenuTrigger asChild>
+              <Button variant="noShadow" size="icon" className="size-8">
+                <span className="sr-only">Open menu</span>
+                <MoreHorizontal />
+              </Button>
+            </DropdownMenuTrigger>
+            <DropdownMenuContent align="end">
+              <DropdownMenuLabel>Actions</DropdownMenuLabel>
+              <DropdownMenuItem
+                onClick={() => navigator.clipboard?.writeText(payment.id)}
+              >
+                Copy payment ID
+              </DropdownMenuItem>
+              <DropdownMenuSeparator />
+              <DropdownMenuItem>View customer</DropdownMenuItem>
+              <DropdownMenuItem>View payment details</DropdownMenuItem>
+            </DropdownMenuContent>
+          </DropdownMenu>
+        </div>
       )
     },
   },
@@ -232,8 +191,9 @@ export default function DataTableDemo() {
         />
         <DropdownMenu>
           <DropdownMenuTrigger asChild>
-            <Button variant="noShadow" className="ml-auto font-heading uppercase tracking-wider">
-              Columns <DataTableChevron />
+            <Button variant="noShadow" className="ml-auto">
+              Columns
+              <ChevronDown className="size-4 shrink-0" />
             </Button>
           </DropdownMenuTrigger>
           <DropdownMenuContent align="end">

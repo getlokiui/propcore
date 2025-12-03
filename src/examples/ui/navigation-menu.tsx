@@ -64,13 +64,13 @@ export default function NavigationMenuDemo() {
               <li className="row-span-3">
                 <NavigationMenuLink asChild>
                   <a
-                    className="flex h-full w-full select-none flex-col justify-end rounded-base p-6 no-underline outline-hidden"
+                    className="flex h-full w-full select-none flex-col justify-end rounded-base border-3 border-border bg-main text-main-foreground p-6 no-underline outline-hidden hover:bg-main/90 transition-colors"
                     href="https://ui.shadcn.com"
                   >
                     <div className="mb-2 mt-4 text-lg font-heading">
                       shadcn/ui
                     </div>
-                    <p className="text-sm font-base leading-tight">
+                    <p className="text-sm font-base leading-tight opacity-80">
                       Beautifully designed components that you can copy and
                       paste into your apps. Accessible. Customizable. Open
                       Source.
@@ -135,13 +135,15 @@ function ListItem({
       <NavigationMenuLink asChild>
         <a
           className={cn(
-            "hover:bg-accent block text-main-foreground select-none space-y-1 rounded-base border-2 border-transparent p-3 leading-none no-underline outline-hidden transition-colors hover:border-border",
+            "block select-none space-y-1 rounded-base border-3 border-transparent p-3 leading-none no-underline outline-hidden transition-colors",
+            "text-foreground",
+            "hover:bg-main hover:text-main-foreground hover:border-border",
             className,
           )}
           {...props}
         >
           <div className="text-base font-heading leading-none">{title}</div>
-          <p className="font-base line-clamp-2 text-sm leading-snug">
+          <p className="font-base line-clamp-2 text-sm leading-snug opacity-80">
             {children}
           </p>
         </a>

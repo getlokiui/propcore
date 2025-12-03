@@ -74,9 +74,9 @@ function Stepper({ steps, currentStep, className }: StepperProps) {
                   "border-3 border-border",
                   "rounded-base text-xs font-heading",
                   "transition-all duration-300",
-                  isCompleted && "bg-accent text-foreground",
+                  isCompleted && "bg-main text-main-foreground",
                   isCurrent && "bg-main text-main-foreground",
-                  isPending && "bg-background text-foreground/40",
+                  isPending && "bg-background text-foreground",
                 )}
               >
                 {isCompleted ? (
@@ -102,9 +102,9 @@ function Stepper({ steps, currentStep, className }: StepperProps) {
               className={cn(
                 "text-xs font-heading uppercase tracking-wide text-center",
                 "max-w-[80px]",
-                isCompleted && "text-accent",
+                isCompleted && "text-foreground",
                 isCurrent && "text-main",
-                !isCompleted && !isCurrent && "text-foreground/40",
+                !isCompleted && !isCurrent && "text-foreground/70",
               )}
             >
               {step}

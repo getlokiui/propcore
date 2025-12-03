@@ -64,7 +64,7 @@ function ResizableHandle({
       {withHandle && (
         <div className={cn(
           "z-10 flex h-6 w-4 items-center justify-center",
-          "rounded-base border-2 border-border",
+          "rounded-base border-3 border-border",
           "bg-background",
           "shadow-[1px_1px_0_var(--border)]",
           "hover:bg-accent",
